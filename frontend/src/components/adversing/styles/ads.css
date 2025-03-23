@@ -1,0 +1,129 @@
+/* Layout principal */
+.ads {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.adsPrincipal {
+  padding: 20px;
+  
+}
+
+.adsPrincipal {
+  padding: 30px;
+}
+
+/* Título da página */
+.ads h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #f38721; /* Azul para diferenciar posts */
+  margin-bottom: 20px;
+}
+
+/* Botão "Criar Nova Propaganda" */
+.create-ad-btn {
+  display: block;
+  margin: 0 auto 20px auto;
+  background-color: #f38721;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.create-ad-btn:hover {
+  background-color: #45a049;
+}
+
+/* Container das propagandas */
+.main-ads, .sidebar-ads {
+  margin-bottom: 40px;
+}
+
+/* Títulos das seções de propagandas */
+.main-ads h2, .sidebar-ads h2 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* Lista de propagandas */
+.ads-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ad-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ad-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos e descrições dos anúncios */
+.ad-item h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.ad-item p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Ações (botões) */
+.ad-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ad-actions button {
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.ad-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Mensagens de "sem propagandas" */
+.ads-list p {
+  color: #999;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ad-image {
+  max-width: 200px;
+}

@@ -1,0 +1,112 @@
+body.no-padding {
+  padding: 0 !important;
+}
+
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 2%;
+  background-color: black;
+  color: white;
+}
+
+.dashboard-header img {
+  height: 40px;
+}
+
+.dashboard-header button {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-header button:hover {
+  background-color: #e84343;
+}
+
+/* Botões principais */
+.dashboard-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.dashboard-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #0f1bfe;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-buttons button:hover {
+  background-color: #0f1bfe;
+}
+
+/* Título */
+.dashboard-title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+
+  .dashboard-header img {
+      height: 35px;
+  }
+
+  .dashboard-header button {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
+
+  .dashboard-buttons button {
+      padding: 8px 15px;
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-buttons {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .dashboard-buttons button {
+      width: 100%;
+      max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header {
+      padding: 10px;
+  }
+
+  .dashboard-header img {
+      height: 30px;
+  }
+
+  .dashboard-buttons button {
+      padding: 6px 10px;
+      font-size: 12px;
+  }
+
+  .dashboard-title {
+      font-size: 18px;
+  }
+}

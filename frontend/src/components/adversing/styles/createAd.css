@@ -1,0 +1,52 @@
+.create-ad {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-ad h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-title,
+.input-link,
+.input-company,
+.input-description,
+.input-imageUrl,
+.input-select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: small;
+}
+
+.input-description {
+  resize: none;
+}
+
+.image-upload {
+  margin-bottom: 15px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+}

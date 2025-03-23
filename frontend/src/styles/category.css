@@ -1,0 +1,104 @@
+/* Estilo geral da página */
+.PostsList {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+  }
+  
+  .PostsList__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .btn-back {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  
+  .btn-back:hover {
+    background-color: #0056b3;
+  }
+  
+  .PostsList__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .post__list {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .post__list:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .post__title {
+    font-size: 1.5rem;
+    margin: 20px;
+    font-weight: bold;
+  }
+  
+  .post__image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .post__image-source {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 5px 20px;
+  }
+  
+  .post__description {
+    font-size: 1rem;
+    color: #333;
+    padding: 0 20px 20px;
+    line-height: 1.5;
+  }
+  
+  .post__details {
+    font-size: 0.9rem;
+    color: #777;
+    padding: 0 20px 20px;
+    text-align: right;
+  }
+  
+  @media (max-width: 768px) {
+    .PostsList__container {
+      grid-template-columns: 1fr;
+    }
+  
+    .post__title {
+      font-size: 1.3rem;
+    }
+  
+    .post__description {
+      font-size: 0.9rem;
+    }
+  
+    .post__details {
+      font-size: 0.8rem;
+    }
+  
+    .btn-back {
+      font-size: 0.9rem;
+    }
+  }
+  

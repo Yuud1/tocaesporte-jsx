@@ -1,0 +1,92 @@
+.create-post {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-post h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.input-title,
+.input-subtitle,
+.input-author,
+.input-url,
+.input-imageSource {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: small;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: sans-serif;
+
+}
+
+.input-title::placeholder,
+.input-subtitle::placeholder,
+.input-author::placeholder
+.input-url::placeholder {
+  color: #888;
+}
+
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  font-size: 14px;
+  color: #555;
+}
+
+.image-upload input {
+  display: block;
+  margin-top: 10px;
+}
+
+.ql-editor {
+  min-height: 200px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.section-dropdown {
+  margin-bottom: 20px;
+}
+
+.section-dropdown label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.section-dropdown select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

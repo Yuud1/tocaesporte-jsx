@@ -1,0 +1,79 @@
+.sobre-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 70px 30px;
+  }
+  
+  .sobre-content {
+    max-width: 900px;
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.01);
+  }
+  
+  .sobre-content h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Títulos secundários */
+  .sobre-content h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Parágrafos */
+  .sobre-content p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Lista */
+  .sobre-content ul {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
+  
+  /* Links */
+  .sobre-content a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .sobre-content a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    .sobre-content {
+      padding: 20px;
+    }
+  
+    .sobre-content h1 {
+      font-size: 2rem;
+    }
+  
+    .sobre-content h2 {
+      font-size: 1.6rem;
+    }
+  
+    .sobre-content p,
+    .sobre-content ul {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -1,0 +1,18 @@
+/* index.css ou App.css */
+body {
+  margin: 0;
+  padding-top: 80px;
+  overflow-x: hidden;
+}
+/* Para dispositivos móveis */
+@media (max-width: 1150px) {
+  body {
+    padding-top: 80px; /* Ajuste para a altura da barra de navegação em telas pequenas */
+  }
+}
+  
+@media (max-width: 800px) {
+  body {
+    padding-top:80px; /* Ajuste para a altura da barra de navegação em telas pequenas */
+  }
+}
