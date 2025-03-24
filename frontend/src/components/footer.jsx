@@ -55,7 +55,7 @@ const Footer = () => {
         <div>
           <p>
             layout e desenvolvimento{' '}
-            <a href="https://www.instagram.com/hatcorp/" target="_blank">
+            <a href="https://www.instagram.com/hatcorp/" target="_blank" rel="noopener noreferrer">
               <span>Hatcorp</span>
             </a>
             <br /> tocaesporte 2025 | todos os direitos reservados.

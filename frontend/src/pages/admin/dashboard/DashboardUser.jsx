@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../../assets/images/logo3.png';
+import Header from '../../../components/headerDashboard';
 import '../../../styles/dashboard.css';
 
 const DashboardUser = () => {
@@ -35,11 +35,7 @@ const DashboardUser = () => {
 
   return (
     <div className="dashboardUser">
-      {/* Header */}
-      <header className="dashboard-header">
-        <img src={Logo} alt="Logo" />
-        <button onClick={handleLogout}>Deslogar</button>
-      </header>
+      <Header />
 
       <div>
         <h1 className="dashboard-title">Bem-vindo ao Dashboard User</h1>

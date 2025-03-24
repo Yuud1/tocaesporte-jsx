@@ -83,7 +83,9 @@ const AdsAdmin = () => {
                   <h3>{ad.title}</h3>
                   <p>{ad.description}</p>
                   {ad.urlimage && <img src={ad.urlimage} alt={ad.title} className="ad-image" />}
-                  <button onClick={() => handleDeleteAd(ad.id, true)}>Excluir</button>
+                  <div className="ad-actions">
+                    <button onClick={() => handleDeleteAd(ad.id, true)}>Excluir</button>
+                  </div>
                 </li>
               ))
             ) : (
@@ -101,7 +103,9 @@ const AdsAdmin = () => {
                   <h3>{ad.title}</h3>
                   <p>{ad.description}</p>
                   {ad.urlimage && <img src={ad.urlimage} alt={ad.title} className="ad-image" />}
+                  <div className='ad-actions'>
                   <button onClick={() => handleDeleteAd(ad.id, false)}>Excluir</button>
+                  </div>
                 </li>
               ))
             ) : (

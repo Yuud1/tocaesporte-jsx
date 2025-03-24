@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/images/logo3.png'; // Ajuste o caminho conforme necessário
+import Logo from '../assets/images/logo.png'; // Ajuste o caminho conforme necessário
 import '../styles/dashboard.css'; // Ajuste o caminho conforme necessário
 
 const Header = ({ onLogout }) => {

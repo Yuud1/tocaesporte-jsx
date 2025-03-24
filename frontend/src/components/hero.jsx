@@ -7,7 +7,6 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './footer';
-import SwiperCore from 'swiper';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // Substituído import.meta.env por process.env
 

@@ -233,6 +233,7 @@ const Header = () => {
             <a
               href="https://www.instagram.com/tocaesporte/"
               target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
             >
               <FaInstagram size={24} color="white" />

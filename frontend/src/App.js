@@ -25,7 +25,7 @@ import PostsUser from './components/post/postUser/PostUser';
 import AdsUser from './components/adversing/adversingUser/AdsUser';
 import CreateAdUser from './components/adversing/adversingUser/CreateAdUser';
 
-import './index.css';
+import './App.css';
 import Category from './pages/Category';
 
 import ProtectedRoute from './components/ProtectedRoute';

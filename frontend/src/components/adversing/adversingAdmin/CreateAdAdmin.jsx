@@ -91,11 +91,11 @@ const CreateAdAdmin = () => {
       <div className="image-url">
         <input
           id="image-url-input"
+          className="input-imageUrl"
           type="text"
           placeholder="Digite o link da imagem..."
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          className="input-image"
         />
       </div>
 
