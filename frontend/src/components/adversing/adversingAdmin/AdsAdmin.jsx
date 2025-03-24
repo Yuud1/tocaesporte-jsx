@@ -77,6 +77,7 @@ const AdsAdmin = () => {
         <div className="main-ads">
           <h2>Propagandas Principais</h2>
           <ul className="ads-list">
+            <div className='ad-grid'>
             {mainAds.length > 0 ? (
               mainAds.map((ad) => (
                 <li key={ad.id} className="ad-item">
@@ -91,12 +92,14 @@ const AdsAdmin = () => {
             ) : (
               <p>Sem propagandas principais para mostrar</p>
             )}
+            </div>
           </ul>
         </div>
 
         <div className="sidebar-ads">
           <h2>Propagandas Laterais</h2>
           <ul className="ads-list">
+            <div className='ad-grid'>
             {sidebarAds.length > 0 ? (
               sidebarAds.map((ad) => (
                 <li key={ad.id} className="ad-item">
@@ -108,9 +111,11 @@ const AdsAdmin = () => {
                   </div>
                 </li>
               ))
+              
             ) : (
               <p>Sem propagandas laterais para mostrar</p>
             )}
+            </div>
           </ul>
         </div>
       </div>

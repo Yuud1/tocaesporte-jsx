@@ -7,12 +7,14 @@
 }
 
 .adsPrincipal {
-  padding: 20px;
+  padding: 30px;
   
 }
 
-.adsPrincipal {
-  padding: 30px;
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 /* Título da página */
@@ -64,7 +66,7 @@
 
 .ad-item {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 5px;
   margin: 10px 0;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -72,6 +74,7 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s, box-shadow 0.3s;
+  border-left: 5px solid #f38721; /* Identidade visual dos posts */
 }
 
 .ad-item:hover {
@@ -126,4 +129,19 @@
 
 .ad-image {
   max-width: 200px;
+}
+
+
+@media(max-width: 1150px) {
+  .ad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  }
+}
+
+@media (max-width: 800px) {
+  .ad-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 3 colunas */
+  }
 }
