@@ -19,7 +19,7 @@ const Hero = () => {
   const [loading, setLoading] = useState(true);
   const [propagandaImages, setPropagandaImages] = useState([]);
   const [randomPropagandas, setRandomPropagandas] = useState([]);    
-  
+  console.log(propagandaImages)
   const swiperRef = useRef(null);
 
   const fetchNews = async (category = '') => {

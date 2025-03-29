@@ -160,6 +160,33 @@ router.put("/update/:id", async (req, res) => {
   }
 });
 
+router.delete("/topo/delete/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return res.status(400).json({
+        message: "É nescessário passar um id para deletar a publicação",
+      });
+    }
+
+    await database.connect();
+
+    const artigoToDelete = await Anuncio.findOneAndDelete({ _id: id });
+
+    if (!artigoToDelete) {
+      return res.status(404).json({ message: "Artigo não encontrado" });
+    }
+
+    return res
+      .status(200)
+      .json({ message: "Post deletado com sucesso", deleted: true });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Erro ao conectar-se com o servidor", error });
+  }  
+});
+
 router.delete("/delete/:id", async (req, res) => {
   try {
     const id = req.params.id;

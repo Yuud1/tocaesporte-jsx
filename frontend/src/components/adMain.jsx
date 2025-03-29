@@ -15,10 +15,9 @@ const AdMain = () => {
           throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
         }
 
-        const data = await response.json();
-
-        if (data.length > 0) {
-          const randomAd = data[Math.floor(Math.random() * data.length)];
+        const data = await response.json();                        
+        if (data.anuncios.length > 0) {
+          const randomAd = data.anuncios[Math.floor(Math.random() * data.anuncios.length)];
           setAdData(randomAd);
         }
       } catch (error) {
