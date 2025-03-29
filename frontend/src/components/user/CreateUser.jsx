@@ -42,7 +42,7 @@ const CreateUser = () => {
 
     // Envio da requisição
     axios
-      .post(`${API_BASE_URL}/login/create`, userData, {
+      .post(`${API_BASE_URL}/user/`, userData, {
         headers: {
           'Content-Type': 'application/json',
         },

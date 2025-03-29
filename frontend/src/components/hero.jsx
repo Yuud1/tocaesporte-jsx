@@ -17,21 +17,23 @@ const Hero = () => {
   const [visibleCount, setVisibleCount] = useState(6);
   const [loading, setLoading] = useState(true);
   const [propagandaImages, setPropagandaImages] = useState([]);
-  const [randomPropagandas, setRandomPropagandas] = useState([]);
+  const [randomPropagandas, setRandomPropagandas] = useState([]);    
+  
   const swiperRef = useRef(null);
 
   const fetchNews = async (category = '') => {
     try {
       setLoading(true);
-      let url = `${API_BASE_URL}/artigo/listar`;
+      let url = `${API_BASE_URL}/artigo/`;
       if (category) {
         url = `${API_BASE_URL}/artigo/category/${category}`;
       }
-      const response = await axios.get(url);
+      const response = await axios.get(url);      
+      
       if (response.status === 200) {
-        const latestNews = response.data.slice(-3);
+        const latestNews = response.data.artigos.slice(-3);
         setNewsData(latestNews);
-        const remainingNews = response.data.slice(0, -3).reverse();
+        const remainingNews = response.data.artigos.slice(0, -3).reverse();
         setHeroData(remainingNews);
       }
     } catch (error) {
@@ -45,7 +47,7 @@ const Hero = () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/propaganda/listar`);
       if (response.status === 200) {
-        setPropagandaImages(response.data);
+        setPropagandaImages(response.data.anuncios);
       }
     } catch (error) {
       console.error('Erro ao buscar propagandas:', error);
@@ -128,14 +130,14 @@ const Hero = () => {
     <div className="main-container">
       <Header />
 
-      {/* Imagens flutuantes */}
+      {/* Imagens flutuantes */}      
       {randomPropagandas.length > 0 && (
         <>
           <div className="floating-image-container">
-            <img src={randomPropagandas[0]?.urlimage} alt="Propaganda" className="floating-image" />
+            <img src={randomPropagandas[0].urlimage} alt="Propaganda" className="floating-image" />
           </div>
           <div className="floating-image-container-right">
-            <img src={randomPropagandas[1]?.urlimage} alt="Propaganda" className="floating-image-right" />
+            <img src={randomPropagandas[0].urlimage} alt="Propaganda" className="floating-image-right" />
           </div>
         </>
       )}

@@ -100,9 +100,11 @@ const Header = () => {
   // Função para buscar artigos por categoria
   const handleCategory = async (category) => {
     try {
-      const response = await axios.get(`http://localhost:8080/artigo/category/${category}`);
-      navigate('/Category', { state: { posts: response.data } });
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/artigo/category/${category}`);
+      navigate('/Category', { state: { posts: response.data.artigo } });
     } catch (error) {
+      console.log(error);
+      
       console.error(`Erro ao buscar posts da categoria ${category}`, error);
       setError('Erro ao carregar posts da categoria. Tente novamente.');
     }
@@ -110,10 +112,10 @@ const Header = () => {
 
   // Função para buscar artigos por termo de pesquisa
   const handleSearch = async (term) => {
-    if (term) {
+    if (term) {      
       try {
-        const response = await axios.get(`http://localhost:8080/artigo/buscar?description=${term}`);
-        setSearchResults(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/artigo/buscar/${term}`);
+        setSearchResults(response.data.artigo);
         setIsSearchResultsVisible(true); // Mostrar os resultados da pesquisa
       } catch (error) {
         console.error('Erro ao buscar artigos:', error);

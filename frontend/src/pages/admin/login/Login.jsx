@@ -34,18 +34,17 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/login/authenticate`, {
-        email,
-        password,
-      });
-
-      console.log('Login bem-sucedido:', response.data);
+      const response = await axios.post(`${API_BASE_URL}/user/login`, {email,password},{
+        headers: {
+          'Content-Type': 'application/json',
+        },  
+      });  
 
       // Verificando o acesso e redirecionando para o Dashboard correspondente
-      if (response.data.acesso.toLowerCase() === 'admin') {
+      if (response.data.access.toLowerCase() === 'admin') {
         localStorage.setItem('acesso', 'admin');
         navigate('/dashboardAdmin');
-      } else if (response.data.acesso.toLowerCase() === 'user') {
+      } else if (response.data.access.toLowerCase() === 'user') {
         localStorage.setItem('acesso', 'user');
         navigate('/dashboardUser');
       } else {

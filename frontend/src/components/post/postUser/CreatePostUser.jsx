@@ -35,7 +35,7 @@ const CreatePostUser = () => {
     };
 
     axios
-      .post(`${API_BASE_URL}/artigo/criar`, postData)
+      .post(`${API_BASE_URL}/artigo/`, postData)
       .then((response) => {
         alert('Post criado com sucesso!');
         navigate('/postsUser');

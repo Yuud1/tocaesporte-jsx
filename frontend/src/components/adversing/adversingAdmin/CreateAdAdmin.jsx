@@ -32,13 +32,14 @@ const CreateAdAdmin = () => {
       subtitle: placement === 'main' ? description : undefined, // Usar description como subtitle
       urlimage: imageUrl, // urlimage é obrigatório para ambos os tipos
       enterprise: placement === 'main' ? company : undefined, // enterprise (empresa) apenas na Propaganda Principal
-      site: placement === 'main' ? redirectLink : undefined, // site (link de redirecionamento) apenas na Propaganda Principal
+      site: placement === 'main' ? redirectLink : undefined, // site (link de redirecionamento) apenas na Propaganda Principal      
+      placement,
     };
 
     // Definir a URL com base no tipo de propaganda
     const url =
       placement === 'main'
-        ? `${API_BASE_URL}/propagandatopo/criar`
+        ? `${API_BASE_URL}/propaganda/topo/criar`
         : `${API_BASE_URL}/propaganda/criar`;
 
     try {

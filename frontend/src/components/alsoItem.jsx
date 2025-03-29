@@ -10,9 +10,9 @@ const AlsoItem = ({ currentCategory, currentNewsId }) => {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/artigo/listar`)
+      .get(`${API_BASE_URL}/artigo/`)
       .then((response) => {
-        const filteredNews = response.data
+        const filteredNews = response.data.artigos
           .filter(
             (news) =>
               news.category === currentCategory && news.id !== currentNewsId
@@ -30,8 +30,8 @@ const AlsoItem = ({ currentCategory, currentNewsId }) => {
       <h2 className="related-news-title">Notícias Relacionadas</h2>
       <div className="also-grid-container">
         {relatedNews.map((news) => (
-          <div key={news.id} className="also-item">
-            <Link to={`/news/${news.id}`} state={{ post: news }}>
+          <div key={news._id} className="also-item">
+            <Link to={`/news/${news._id}`} state={{ post: news }}>
               <img src={news.urlimage} alt={news.title} />
               <h3>{news.title}</h3>
             </Link>

@@ -13,7 +13,7 @@ const PostsUser = () => {
   // Buscar posts da API
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/artigo/listar`)
+      .get(`${API_BASE_URL}/artigo`)
       .then((response) => {
         setPosts(response.data.reverse()); // Inverte a ordem dos posts
       })
@@ -34,7 +34,9 @@ const PostsUser = () => {
     axios
       .delete(`${API_BASE_URL}/artigo/delete/${id}`)
       .then(() => {
-        setPosts(posts.filter((post) => post.id !== id));
+        alert("Post excluido com sucesso")
+        setPosts(posts.filter((post) => post._id !== id));
+        window.location.href = "/postsUser"
       })
       .catch((error) => {
         console.error('Erro ao excluir o post:', error);
@@ -55,14 +57,14 @@ const PostsUser = () => {
         </button>
         <div className="posts-grid">
           {posts.map((post) => (
-            <div key={post.id} className="post-item">
+            <div key={post._id} className="post-item">
               <img src={post.urlimage} alt={post.title} className="post-image" />
               <h2>{post.title}</h2>
               <h3 className="post-subtitle">{post.subtitle}</h3>
               <p>{post.content}</p>
               <div className="post-actions">
-                <button onClick={() => handleEdit(post.id)}>Editar</button>
-                <button onClick={() => handleDelete(post.id)}>Excluir</button>
+                <button onClick={() => handleEdit(post._id)}>Editar</button>
+                <button onClick={() => handleDelete(post._id)}>Excluir</button>
               </div>
             </div>
           ))}

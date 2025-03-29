@@ -13,9 +13,9 @@ const Users = () => {
   // Buscar usuários da API
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/login/list`)
+      .get(`${API_BASE_URL}/user/`)
       .then((response) => {
-        setUsers(response.data);
+        setUsers(response.data.users);
       })
       .catch((error) => {
         console.error('Erro ao buscar usuários:', error);
@@ -30,13 +30,15 @@ const Users = () => {
 
     if (!confirmation) {
       return; // Se o usuário cancelar, interrompe a exclusão
-    }
-
+    }    
+    
     axios
-      .delete(`${API_BASE_URL}/login/delete/${id}`)
+      .delete(`${API_BASE_URL}/user/${id}`)
       .then(() => {
         // Atualizar o estado removendo o usuário deletado
+        alert("Usuário excluido com sucesso")
         setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+        window.location.href = "/users"
       })
       .catch((error) => {
         console.error('Erro ao excluir o usuário:', error);
@@ -59,7 +61,7 @@ const Users = () => {
               </h2>
               <p>Email: {user.email}</p>
               <div className="user-actions">
-                <button onClick={() => handleDelete(user.id)}>Excluir</button>
+                <button onClick={() => handleDelete(user._id)}>Excluir</button>
               </div>
             </li>
           ))}

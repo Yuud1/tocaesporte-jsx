@@ -9,14 +9,13 @@ const AdMain = () => {
   useEffect(() => {
     const fetchAdvertisements = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/propagandatopo/listar`);
+        const response = await fetch(`${API_BASE_URL}/propaganda/topo/listar`);
 
         if (!response.ok) {
           throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
         }
 
         const data = await response.json();
-        console.log('Dados recebidos da API:', data);
 
         if (data.length > 0) {
           const randomAd = data[Math.floor(Math.random() * data.length)];

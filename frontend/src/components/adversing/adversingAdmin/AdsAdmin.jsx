@@ -8,7 +8,7 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // Substituído import.
 
 const AdsAdmin = () => {
   const navigate = useNavigate();
-  const [mainAds, setMainAds] = useState([]);
+  const [mainAds, setMainAds] = useState([]);  
   const [sidebarAds, setSidebarAds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,12 +20,12 @@ const AdsAdmin = () => {
         setIsLoading(true);
 
         const [mainAdsResponse, sidebarAdsResponse] = await Promise.all([
-          axios.get(`${API_BASE_URL}/propagandatopo/listar`),
+          axios.get(`${API_BASE_URL}/propaganda/topo/listar`),
           axios.get(`${API_BASE_URL}/propaganda/listar`),
         ]);
-
-        setMainAds(Array.isArray(mainAdsResponse.data) ? mainAdsResponse.data : []);
-        setSidebarAds(Array.isArray(sidebarAdsResponse.data) ? sidebarAdsResponse.data : []);
+        
+        setMainAds(Array.isArray(mainAdsResponse.data.anuncios) ? mainAdsResponse.data.anuncios : []);
+        setSidebarAds(Array.isArray(sidebarAdsResponse.data.anuncios) ? sidebarAdsResponse.data.anuncios : []);
       } catch (err) {
         console.error('Erro ao buscar propagandas:', err);
       } finally {
@@ -44,16 +44,16 @@ const AdsAdmin = () => {
 
     try {
       const endpoint = isMainAd
-        ? `${API_BASE_URL}/propagandatopo/delete/${id}`
+        ? `${API_BASE_URL}/propaganda/topo/delete/${id}`
         : `${API_BASE_URL}/propaganda/delete/${id}`;
 
       await axios.delete(endpoint);
 
       // Atualiza a lista removendo o item excluído
       if (isMainAd) {
-        setMainAds((prev) => prev.filter((ad) => ad.id !== id));
+        setMainAds((prev) => prev.filter((ad) => ad._id !== id));
       } else {
-        setSidebarAds((prev) => prev.filter((ad) => ad.id !== id));
+        setSidebarAds((prev) => prev.filter((ad) => ad._id !== id));
       }
     } catch (error) {
       setError('Erro ao excluir a propaganda.');
@@ -80,12 +80,12 @@ const AdsAdmin = () => {
             <div className='ad-grid'>
             {mainAds.length > 0 ? (
               mainAds.map((ad) => (
-                <li key={ad.id} className="ad-item">
+                <li key={ad._id} className="ad-item">
                   <h3>{ad.title}</h3>
                   <p>{ad.description}</p>
                   {ad.urlimage && <img src={ad.urlimage} alt={ad.title} className="ad-image" />}
                   <div className="ad-actions">
-                    <button onClick={() => handleDeleteAd(ad.id, true)}>Excluir</button>
+                    <button onClick={() => handleDeleteAd(ad._id, true)}>Excluir</button>
                   </div>
                 </li>
               ))
@@ -102,12 +102,12 @@ const AdsAdmin = () => {
             <div className='ad-grid'>
             {sidebarAds.length > 0 ? (
               sidebarAds.map((ad) => (
-                <li key={ad.id} className="ad-item">
+                <li key={ad._id} className="ad-item">
                   <h3>{ad.title}</h3>
                   <p>{ad.description}</p>
                   {ad.urlimage && <img src={ad.urlimage} alt={ad.title} className="ad-image" />}
                   <div className='ad-actions'>
-                  <button onClick={() => handleDeleteAd(ad.id, false)}>Excluir</button>
+                  <button onClick={() => handleDeleteAd(ad._id, false)}>Excluir</button>
                   </div>
                 </li>
               ))

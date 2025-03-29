@@ -20,19 +20,19 @@ const CreateAdUser = () => {
         setIsLoading(true);
 
         // Buscar anúncios principais
-        const mainAdsResponse = await axios.get(`${API_BASE_URL}/propagandatopo/listar`);
-        if (Array.isArray(mainAdsResponse.data)) {
-          setMainAds(mainAdsResponse.data);
+        const mainAdsResponse = await axios.get(`${API_BASE_URL}/propaganda/topo/listar`);
+        if (Array.isArray(mainAdsResponse.data.anuncios)) {
+          setMainAds(mainAdsResponse.data.anuncios);
         } else {
-          console.error('A resposta das propagandas principais não é um array:', mainAdsResponse.data);
+          console.error('A resposta das propagandas principais não é um array:', mainAdsResponse.data.message);
         }
 
         // Buscar anúncios laterais
         const sidebarAdsResponse = await axios.get(`${API_BASE_URL}/propaganda/listar`);
-        if (Array.isArray(sidebarAdsResponse.data)) {
-          setSidebarAds(sidebarAdsResponse.data);
+        if (Array.isArray(sidebarAdsResponse.data.anuncios)) {
+          setSidebarAds(sidebarAdsResponse.data.anuncios);
         } else {
-          console.error('A resposta das propagandas laterais não é um array:', sidebarAdsResponse.data);
+          console.error('A resposta das propagandas laterais não é um array:', sidebarAdsResponse.data.message);
         }
       } catch (err) {
         console.error('Erro ao buscar propagandas:', err);
@@ -63,9 +63,9 @@ const CreateAdUser = () => {
       .then(() => {
         // Atualizar o estado removendo o anúncio deletado
         if (isMainAd) {
-          setMainAds((prev) => prev.filter((ad) => ad.id !== id));
+          setMainAds((prev) => prev.filter((ad) => ad._id !== id));
         } else {
-          setSidebarAds((prev) => prev.filter((ad) => ad.id !== id));
+          setSidebarAds((prev) => prev.filter((ad) => ad._id !== id));
         }
       })
       .catch((error) => {
@@ -91,13 +91,13 @@ const CreateAdUser = () => {
           <ul className="ads-list">
             {mainAds.length > 0 ? (
               mainAds.map((ad) => (
-                <li key={ad.id} className="ad-item">
+                <li key={ad._id} className="ad-item">
                   <h3>{ad.title}</h3>
                   <p>{ad.description}</p>
                   {/* Exibindo a imagem */}
                   {ad.urlimage && <img src={ad.urlimage} alt={ad.title} className="ad-image" />}
                   <div className="ad-actions">
-                    <button onClick={() => handleDeleteAd(ad.id, true)}>Excluir</button>
+                    <button onClick={() => handleDeleteAd(ad._id, true)}>Excluir</button>
                   </div>
                 </li>
               ))
@@ -112,13 +112,13 @@ const CreateAdUser = () => {
           <ul className="ads-list">
             {sidebarAds.length > 0 ? (
               sidebarAds.map((ad) => (
-                <li key={ad.id} className="ad-item">
+                <li key={ad._id} className="ad-item">
                   <h3>{ad.title}</h3>
                   <p>{ad.description}</p>
                   {/* Exibindo a imagem */}
                   {ad.urlimage && <img src={ad.urlimage} alt={ad.title} className="ad-image" />}
                   <div className="ad-actions">
-                    <button onClick={() => handleDeleteAd(ad.id, false)}>Excluir</button>
+                    <button onClick={() => handleDeleteAd(ad._id, false)}>Excluir</button>
                   </div>
                 </li>
               ))

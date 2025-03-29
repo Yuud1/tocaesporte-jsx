@@ -7,8 +7,7 @@ import Footer from '../components/footer';
 
 function Category() {
   const location = useLocation();
-  const { posts } = location.state || { posts: [] }; // Removida a tipagem
-
+  const { posts } = location.state || { posts: [] }; // Removida a tipagem  
   const [loading, setLoading] = useState(false);
   const [visibleCount] = useState(6); // Exibir 6 posts por vez
 
@@ -30,8 +29,8 @@ function Category() {
         ) : (
           posts.length > 0 ? (
             posts.slice(0, visibleCount).map((post) => (
-              <div key={post.id} className="news-item">
-                <Link to={`/news/${post.id}`} state={{ post }}>
+              <div key={post._id} className="news-item">
+                <Link to={`/news/${post._id}`} state={{ post }}>
                   <img src={post.urlimage} alt={post.title} />
                   <h3>{post.title}</h3>
                 </Link>

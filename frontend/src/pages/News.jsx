@@ -23,7 +23,7 @@ const formatDate = (isoDate) => {
 };
 
 // Função para gerar slugs a partir do título
-const generateSlug = (title) => {
+const generateSlug = (title) => {  
   return title
     .toLowerCase() // Converte para minúsculas
     .replace(/[^\w\s-]/g, '') // Remove caracteres especiais
@@ -33,19 +33,21 @@ const generateSlug = (title) => {
 
 const News = () => {
   const { id } = useParams(); // Recebe o ID da URL
+  
   const { state } = useLocation(); // Estado da navegação (se houver)
   const navigate = useNavigate(); // Hook para navegação programática
   const [selectedItem, setSelectedItem] = useState(null);
   const [propagandaImages, setPropagandaImages] = useState([]);
   const [randomPropagandas, setRandomPropagandas] = useState([]);
-
+    
+  
   // Busca os detalhes da notícia
   useEffect(() => {
     if (state?.post) {
       setSelectedItem(state.post);
       // Atualiza a URL com o slug do título
       const slug = generateSlug(state.post.title);
-      navigate(`/news/${state.post.id}/${slug}`, { replace: true });
+      navigate(`/news/${state.post._id}/${slug}`, { replace: true });
     } else {
       axios
         .get(`${API_BASE_URL}/artigo/${id}`, {
@@ -54,7 +56,7 @@ const News = () => {
           },
         })
         .then((response) => {
-          setSelectedItem(response.data);
+          setSelectedItem(response.data.artigo);
           // Atualiza a URL com o slug do título
           const slug = generateSlug(response.data.title);
           navigate(`/news/${id}/${slug}`, { replace: true });
@@ -74,7 +76,7 @@ const News = () => {
         },
       });
       if (response.status === 200) {
-        setPropagandaImages(response.data);
+        setPropagandaImages(response.data.anuncios);
       }
     } catch (error) {
       console.error('Erro ao buscar propagandas:', error);
@@ -153,7 +155,7 @@ const News = () => {
         <h4 className="subtitle">{selectedItem.subtitle}</h4>
         <h5 className="author">Por: {selectedItem.actor}</h5>
         <h5 className="posted-at">
-          Publicado em: {formatDate(selectedItem.dateCreatetion)}
+          Publicado em: {formatDate(selectedItem.insertAt)}
         </h5>
         <div className="divider-line"></div>
         <img
@@ -172,7 +174,7 @@ const News = () => {
 
       <AlsoItem
         currentCategory={selectedItem.category}
-        currentNewsId={selectedItem.id}
+        currentNewsId={selectedItem._id}
       />
 
       <Footer />

@@ -37,9 +37,9 @@ const CreateAdUser = () => {
     // Definir a URL com base no tipo de propaganda
     const url =
       placement === "main"
-        ? `${API_BASE_URL}/propagandatopo/criar`
+        ? `${API_BASE_URL}/propaganda/topo/criar`
         : `${API_BASE_URL}/propaganda/criar`;
-
+    
     try {
       const response = await fetch(url, {
         method: "POST",

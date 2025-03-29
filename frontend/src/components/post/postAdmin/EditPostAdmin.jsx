@@ -36,9 +36,9 @@ const EditPost = () => {
   // Carregar os dados do post atual
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/artigo/listar/${id}`)
+      .get(`${API_BASE_URL}/artigo/${id}`)
       .then((response) => {
-        setPost(response.data);
+        setPost(response.data.artigo);
         setLoading(false);
       })
       .catch(() => {
