@@ -2,6 +2,8 @@
 .posts {
   font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
+  word-break: break-word;
+  overflow-wrap: break-word; 
 }
 
 .postPrincipal {

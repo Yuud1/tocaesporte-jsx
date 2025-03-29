@@ -2,7 +2,6 @@ body.no-padding {
   padding: 0 !important;
 }
 
-
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -17,7 +16,7 @@ body.no-padding {
 }
 
 .dashboard-header button {
-  padding: 8px 15px;
+  padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
   color: white;
@@ -70,12 +69,12 @@ body.no-padding {
   }
 
   .dashboard-header button {
-      padding: 6px 12px;
+      padding: 10px 12px;
       font-size: 12px;
   }
 
   .dashboard-buttons button {
-      padding: 8px 15px;
+      padding: 12px 15px;
       font-size: 14px;
   }
 }

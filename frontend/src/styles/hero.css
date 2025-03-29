@@ -3,6 +3,8 @@
     padding: 16px;
     max-width: 80%;
     text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word; 
 }
 
 /* Estilo do Hero (Swiper) */
@@ -155,7 +157,7 @@ h1 {
 
   .floating-image-container {
     position: absolute;
-    top: 58.5%;
+    top: 17%;
     left: 10.5%;
     transform: translateX(-50.5%);
     width: 100%;
@@ -174,7 +176,7 @@ h1 {
 
   .floating-image-container-right {
     position: absolute;
-    top: 58.5%;
+    top: 17%;
     transform: translateX(40%);
     width: 100%;
     display: flex;

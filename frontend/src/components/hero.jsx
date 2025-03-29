@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './footer';
+import AdMain from './adMain';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // Substituído import.meta.env por process.env
 
@@ -28,12 +29,13 @@ const Hero = () => {
       if (category) {
         url = `${API_BASE_URL}/artigo/category/${category}`;
       }
-      const response = await axios.get(url);      
-      
+      const response = await axios.get(url);
+  
       if (response.status === 200) {
-        const latestNews = response.data.artigos.slice(-3);
+        const allArticles = response.data.artigos.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        const latestNews = allArticles.slice(0, 3);
         setNewsData(latestNews);
-        const remainingNews = response.data.artigos.slice(0, -3).reverse();
+        const remainingNews = allArticles.slice(3);
         setHeroData(remainingNews);
       }
     } catch (error) {
@@ -42,6 +44,7 @@ const Hero = () => {
       setLoading(false);
     }
   };
+  
 
   const fetchPropaganda = async () => {
     try {
@@ -100,11 +103,11 @@ const Hero = () => {
 
       if (imageLeft) {
         const scrollTop = window.scrollY;
-        imageLeft.style.transform = `translate(-50%, ${scrollTop * 0.5}px)`;
+        imageLeft.style.transform = `translate(-50%, ${scrollTop * 0.7}px)`;
       }
       if (imageRight) {
         const scrollTop = window.scrollY;
-        imageRight.style.transform = `translate(50%, ${scrollTop * 0.5}px)`;
+        imageRight.style.transform = `translate(50%, ${scrollTop * 0.7}px)`;
       }
     };
 
@@ -129,7 +132,7 @@ const Hero = () => {
   return (
     <div className="main-container">
       <Header />
-
+      <AdMain />
       {/* Imagens flutuantes */}      
       {randomPropagandas.length > 0 && (
         <>
